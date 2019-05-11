@@ -510,8 +510,14 @@ void Player::player_arrangement_type(int(&array)[10][10], const char alphabet[10
 		}
 
 		cin >> letter >> number;
+		if (letter == 'К') {
+			number_letter = letter - 'А' - 1;
+		}
+		else {
+			number_letter = letter - 'А';
+		}
 		number -= 1;
-		number_letter = letter - 'А';
+		
 
 		setCursorPosition(0, 21);
 		cout << "                                                                                 ";
@@ -696,7 +702,12 @@ void Player::move(bool* is_prev_success, int* sequence, int(&zones)[10][10], Shi
 	}
 
 	cin >> letter >> number;
-	number_letter = letter - 'А';
+	if (letter == 'К') {
+		number_letter = letter - 'А' - 1;
+	}
+	else {
+		number_letter = letter - 'А';
+	}
 	
 
 	if (zones[number - 1][number_letter] == 1 || zones[number - 1][number_letter] == 2
