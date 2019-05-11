@@ -480,7 +480,7 @@ void Player::player_arrangement_type(int(&array)[10][10], const char alphabet[10
 	}
 	cout << endl << endl;
 	cout << "     Это режим расстановки ваших кораблей." << endl;
-	cout << "     Введите точку (например, D4), где хотите поставить 'голову' корабля, " << endl;
+	cout << "     Введите точку (например, Ж4), где хотите поставить 'голову' корабля, " << endl;
 	cout << "     а затем укажите стрелочкой направление тела корабля." << endl << endl;
 
 	while (true) {
@@ -511,7 +511,7 @@ void Player::player_arrangement_type(int(&array)[10][10], const char alphabet[10
 
 		cin >> letter >> number;
 		number -= 1;
-		number_letter = letter - 'A';
+		number_letter = letter - 'А';
 
 		setCursorPosition(0, 21);
 		cout << "                                                                                 ";
@@ -696,7 +696,8 @@ void Player::move(bool* is_prev_success, int* sequence, int(&zones)[10][10], Shi
 	}
 
 	cin >> letter >> number;
-	number_letter = letter - 'A';
+	number_letter = letter - 'А';
+	
 
 	if (zones[number - 1][number_letter] == 1 || zones[number - 1][number_letter] == 2
 		|| zones[number - 1][number_letter] == 3 || zones[number - 1][number_letter] == 4) {

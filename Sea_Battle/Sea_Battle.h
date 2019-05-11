@@ -14,7 +14,7 @@ using namespace std;
 #define DOWN_ARROW 80
 #define RIGHT_ARROW 77
 
-const char alphabet[10] = { 'A','B','C','D','E','F','G','H','I','J' };
+const char alphabet[10] = { 'А','Б','В','Г','Д','Е','Ж','З','И','К' };
 const int NotUsed = system("color 3F");
 enum ConsoleColor
 {
