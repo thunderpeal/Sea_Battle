@@ -437,7 +437,7 @@ void Decor::kill(int x, int y, int x1, int u) {
 void Decor::instructions() {
 	setCursorPosition(0, 19);
 	cout << "	   Введите свое имя: ";
-	cin >> this->name;
+	getline(cin, name);
 	setCursorPosition(0, 19);
 	cout << "                                                                          ";
 	setCursorPosition(0, 19);
