@@ -709,7 +709,6 @@ void Player::move(bool* is_prev_success, int* sequence, int(&zones)[10][10], Shi
 		number_letter = letter - 'А';
 	}
 	
-
 	if (zones[number - 1][number_letter] == 1 || zones[number - 1][number_letter] == 2
 		|| zones[number - 1][number_letter] == 3 || zones[number - 1][number_letter] == 4) {
 		zones[number - 1][number_letter] = -2;
