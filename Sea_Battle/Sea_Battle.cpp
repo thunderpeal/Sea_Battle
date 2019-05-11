@@ -440,12 +440,11 @@ void Decor::instructions() {
 	getline(cin, name);
 	setCursorPosition(0, 19);
 	cout << "                                                                          ";
+
 	setCursorPosition(0, 19);
 	cout << "	   Добро пожаловать в игру, " << name << "!" << endl << endl;
 	cout << "	   Нажмите клавишу F1, чтобы открыть инструкцию;" << endl;
 	cout << "	   Нажмите клавишу F2, чтобы открыть информацию об авторе;" << endl;
-
-
 	cout << "	   или нажмите любую другую клавишу, чтобы начать игру . . .";
 	int c;
 	while (true) {
