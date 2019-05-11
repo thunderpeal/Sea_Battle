@@ -76,7 +76,7 @@ public:
 
 class Decor :public Game {
 public:
-	string s;
+	string name;
 
 	void x(int x, int y);
 

@@ -63,14 +63,14 @@ int main()
 			setCursorPosition(9, 17);
 			cout << "                                                                           ";
 			setCursorPosition(9, 17);
-			cout << "Вы выиграли, "<<decor.s<<"! Поздравляем!!!";
+			cout << "Вы выиграли, "<<decor.name<<"! Поздравляем!!!";
 			break;
 		}
 		else if (player1.is_dead(player1.ships) == true) {
 			setCursorPosition(9, 17);
 			cout << "                                                                           ";
 			setCursorPosition(9, 17);
-			cout << "К сожалению, " << decor.s << ", Вы проиграли!";
+			cout << "К сожалению, " << decor.name << ", Вы проиграли!";
 			break;
 		}
 		count_of_moves += 1;
