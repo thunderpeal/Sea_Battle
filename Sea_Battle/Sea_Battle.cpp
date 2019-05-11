@@ -218,7 +218,7 @@ void Game::ship_location_checker(int(&array)[10][10], bool dir[4], bool* c_b_p, 
 	for (int i = -1; i < 2; i++) {
 		for (int j = -1; j < 2; j++) {
 			if (x + j >= 10 || x + j < 0 || y + i >= 10 || y + i < 0) { //проверяет все клетки вокруг случайно 
-				continue;											//выбранной на выход за границы поля
+				continue;					//выбранной на выход за границы поля
 			}
 			else if (array[y + i][x + j] != 0) { //проверят их же на наличие других объектов
 				*c_b_p = false;
