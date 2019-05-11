@@ -2,10 +2,11 @@
 
 int main()
 {
-	system("mode con cols=77 lines=25");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	system("mode con cols=77 lines=27");
 	system("title Морской бой");
 	srand(time(NULL));
-	setlocale(LC_ALL, "Russian");
 
 	Decor decor;
 	system("cls");
@@ -27,6 +28,7 @@ int main()
 
 	int count_of_moves = 0;
 	int counter = 0;
+	bool victory = false;
 	int sequence = rand() % 2;
 	bool is_prev_success = false;
 	bool is_prev_success_comp = false;
@@ -57,17 +59,23 @@ int main()
 		}
 
 		if (player0.is_dead(player0.ships) == true) {
-			setCursorPosition(9, 20);
-			cout << "Вы выиграли! Поздравляем!";
+			victory = true;
+			setCursorPosition(9, 17);
+			cout << "                                                                           ";
+			setCursorPosition(9, 17);
+			cout << "Вы выиграли, "<<decor.s<<"! Поздравляем!!!";
 			break;
 		}
 		else if (player1.is_dead(player1.ships) == true) {
-			setCursorPosition(9, 20);
-			cout << "Вы проиграли!";
+			setCursorPosition(9, 17);
+			cout << "                                                                           ";
+			setCursorPosition(9, 17);
+			cout << "К сожалению, " << decor.s << ", Вы проиграли!";
 			break;
 		}
 		count_of_moves += 1;
 	}
-	setCursorPosition(9, 21);
-	system("pause");
+
+	decor.endgame(player0.zones, count_of_moves, victory);
+	return 0;
 }

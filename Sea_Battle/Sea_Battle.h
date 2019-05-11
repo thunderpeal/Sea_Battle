@@ -4,6 +4,7 @@
 #define SEA_BATTLE_H
 #include <iostream>
 #include <ctime>
+#include <string>
 #include <conio.h>
 #include <Windows.h>
 using namespace std;
@@ -75,11 +76,15 @@ public:
 
 class Decor :public Game {
 public:
+	string s;
+
 	void x(int x, int y);
 
 	void SeaBattle();
 
 	void game_beginning_text();
+
+	void endgame(int(&a)[10][10], int c_o_m, bool victory);
 
 	void hit(int x, int y, int x1, int u);
 

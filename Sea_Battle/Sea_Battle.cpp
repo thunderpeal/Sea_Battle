@@ -362,6 +362,29 @@ void Decor::game_beginning_text() {
 	}
 }
 
+void Decor::endgame(int(&zones)[10][10], int c_o_m, bool victory) {
+	if (victory == false) {
+		cout << endl << endl;
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				if (zones[j][i] != 0 && zones[j][i] != -1 && zones[j][i] != -2) {
+					setCursorPosition(48 + 1 + i * 2, 4 + j);
+					cout << zones[j][i];
+				}
+			}
+		}
+	}
+	
+	setCursorPosition(9, 19);
+	cout << "Общая продолжительность игры составила " << c_o_m << " ход(-a)(-ов).";
+	setCursorPosition(9, 20);
+	cout << "Спасибо за использование программы!";
+	setCursorPosition(9, 22);
+	cout << "Для выхода нажмите любую клавишу...";
+	int c;
+	c = _getch();
+}
+
 void Decor::hit(int x, int y, int x1, int u) {  //47 или 12 для u
 	setCursorPosition(0, 18);
 	cout << "                                                ";
@@ -413,8 +436,16 @@ void Decor::kill(int x, int y, int x1, int u) {
 
 void Decor::instructions() {
 	setCursorPosition(0, 19);
+	cout << "	   Введите свое имя: ";
+	cin >> this->s;
+	setCursorPosition(0, 19);
+	cout << "                                                                          ";
+	setCursorPosition(0, 19);
+	cout << "	   Добро пожаловать в игру, " << s << "!" << endl << endl;
 	cout << "	   Нажмите клавишу F1, чтобы открыть инструкцию;" << endl;
 	cout << "	   Нажмите клавишу F2, чтобы открыть информацию об авторе;" << endl;
+
+
 	cout << "	   или нажмите любую другую клавишу, чтобы начать игру . . .";
 	int c;
 	while (true) {
@@ -688,9 +719,17 @@ void Player::move(bool* is_prev_success, int* sequence, int(&zones)[10][10], Shi
 		*is_prev_success = true;
 	}
 	else if (zones[number - 1][number_letter] == -2) {
-		setCursorPosition(9, 18);
-		cout << "Лежачих не бьют! Попробуйте еще раз. ";
-		*sequence = 1;
+		setCursorPosition(48 + 1 + number_letter * 2, 4 + number - 1);
+		Sleep(1500);
+
+		setCursorPosition(56, 15);
+		cout << "Мимо!";
+		Sleep(1500);
+		setCursorPosition(55, 15);
+		cout << "              ";
+		
+		*sequence = 0;
+		*is_prev_success = false;
 	}
 	else {
 		decor.miss(number_letter, number - 1, 37, 48);
@@ -726,12 +765,12 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 	}
 	if (*is_prev_success_comp == false) {
 		int cheat = 0;
-		cheat = rand() % 11;
+		cheat = rand() % 13;
 		while (true) {
 			*x = rand() % 10;
 			*y = rand() % 10;
 
-			if (cheat == 5 && zones[*y][*x] == 0) {
+			if (cheat == 7 && zones[*y][*x] == 0) {
 				continue;
 			}
 			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 // || zones[*y][*x] == 0
