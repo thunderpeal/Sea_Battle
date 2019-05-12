@@ -775,12 +775,12 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 	}
 	if (*is_prev_success_comp == false) {
 		int cheat = 0;
-		cheat = rand() % 13;
+		cheat = rand() % 19;
 		while (true) {
 			*x = rand() % 10;
 			*y = rand() % 10;
 
-			if (cheat == 7 && zones[*y][*x] == 0) {
+			if (cheat == 10 && zones[*y][*x] == 0) {
 				continue;
 			}
 			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 // || zones[*y][*x] == 0
