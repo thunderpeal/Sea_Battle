@@ -2,6 +2,7 @@
 
 #ifndef SEA_BATTLE_H
 #define SEA_BATTLE_H
+
 #include <iostream>
 #include <ctime>
 #include <string>
@@ -16,7 +17,7 @@ using namespace std;
 
 const char alphabet[10] = { 'А','Б','В','Г','Д','Е','Ж','З','И','К' };
 const int NotUsed = system("color 3F");
-enum ConsoleColor
+const enum ConsoleColor
 {
 	Black = 0,
 	Blue = 1,

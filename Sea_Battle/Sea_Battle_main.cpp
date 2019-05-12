@@ -17,15 +17,14 @@ int main()
 	Player player1;
 	system("cls");
 
-	cout << endl << endl; //отступ от границы сверху
+	setCursorPosition(0, 2);  //отступ от границы окна сверху
 	for (int i = 0; i < 12; i++) {
 		cout << "         "; //отступ от границы слева 
 		game.print_gamezone(player1.zones, alphabet, i, false);
-		cout << "            ";
+		cout << "            "; //расстояние между полями
 		game.print_gamezone(player0.zones, alphabet, i, true);
 		cout << endl;
 	}
-	cout << endl << endl << endl; //отступ снизу
 
 	int count_of_moves = 0;
 	int counter = 0;
