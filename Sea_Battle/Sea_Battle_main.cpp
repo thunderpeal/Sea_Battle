@@ -4,6 +4,7 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "Rus");
 	system("mode con cols=77 lines=27");
 	system("title Морской бой");
 	srand(time(NULL));
