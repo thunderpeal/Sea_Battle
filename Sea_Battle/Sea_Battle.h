@@ -60,6 +60,8 @@ public:
 
 class Game {
 public:
+	Ships ships[10];
+
 	int zones[10][10];
 
 	void set_0(int(&a)[10][10]);
@@ -75,7 +77,7 @@ public:
 	int answer(int x, int y, int x1, int y1);
 };
 
-class Decor :public Game {
+class Decor : public Game {
 public:
 	string name;
 
@@ -100,7 +102,6 @@ public:
 
 class Player : public Game {
 public:
-	Ships ships[10];
 	Player();
 
 	void player_arrangement_type(int(&array)[10][10], const char alphabet[10], Ships* a);
@@ -112,7 +113,6 @@ public:
 
 class Computer : public Game {
 public:
-	Ships ships[10];
 	Computer();
 
 	Ships* move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, int* sequence, int* enter, bool* help,

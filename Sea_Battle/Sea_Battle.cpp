@@ -783,7 +783,7 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 			if (cheat == 10 && zones[*y][*x] == 0) {
 				continue;
 			}
-			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 // || zones[*y][*x] == 0
+			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 || zones[*y][*x] == 0
 				) {
 				continue;
 			}
