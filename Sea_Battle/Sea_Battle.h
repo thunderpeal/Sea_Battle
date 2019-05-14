@@ -42,13 +42,13 @@ void SetColor(int text, ConsoleColor background);
 void setCursorPosition(int x, int y);
 
 class Ships {
-public:
+private:
 	int x1, y1, x2, y2;
 	int length;
 	bool horizontal_orientation;
 	int direction; //0 вверх 1 вниз 2 влево 3 вправо
+public:
 	int health_bar;
-
 	void set(int a1, int b1, int a2, int b2, int l);
 
 	bool is_it(int x, int y);
