@@ -218,7 +218,7 @@ void Game::ship_location_checker(int(&array)[10][10], bool dir[4], bool* c_b_p, 
 	for (int i = -1; i < 2; i++) {
 		for (int j = -1; j < 2; j++) {
 			if (x + j >= 10 || x + j < 0 || y + i >= 10 || y + i < 0) { //проверяет все клетки вокруг случайно 
-				continue;					//выбранной на выход за границы поля
+				continue;											//выбранной на выход за границы поля
 			}
 			else if (array[y + i][x + j] != 0) { //проверят их же на наличие других объектов
 				*c_b_p = false;
@@ -227,8 +227,8 @@ void Game::ship_location_checker(int(&array)[10][10], bool dir[4], bool* c_b_p, 
 	}
 
 	if (*c_b_p == true) {
-		for (int i = 1; i < ship_length; i++) {//в какую сторону нельзя повернуть корабль
-			if (y - i < 0) { dir[0] = false; }//вверх нельзя
+		for (int i = 1; i < ship_length; i++) {  //в какую сторону нельзя повернуть корабль
+			if (y - i < 0) { dir[0] = false; }   //вверх нельзя
 			else {
 				for (int j = -1; j < 2; j++) {
 					if (x + j >= 10 || x + j < 0 || y - i - 1 < 0) { continue; }
@@ -246,7 +246,7 @@ void Game::ship_location_checker(int(&array)[10][10], bool dir[4], bool* c_b_p, 
 			}
 			if (x - i < 0) {
 				dir[2] = false;
-			} //влево нельзя
+			}   //влево нельзя
 			else {
 				for (int j = -1; j < 2; j++) {
 					if (y + j >= 10 || y + j < 0 || x - i - 1 < 0) { continue; }
@@ -537,7 +537,7 @@ void Player::player_arrangement_type(int(&array)[10][10], const char alphabet[10
 			a[check].set(number_letter, number, number_letter, number - ship_length + 1, ship_length);
 			check += 1;
 		}
-		array[number][number_letter] = ship_length; //закидываем в массив нашего поля голову корабля
+		array[number][number_letter] = ship_length;  //закидываем в массив нашего поля голову корабля
 		setCursorPosition(28 + number_letter * 2, 4 + number); //*2 учитывает пробелы в выводимом массиве
 		cout << array[number][number_letter];
 
@@ -574,7 +574,7 @@ void Player::player_arrangement_type(int(&array)[10][10], const char alphabet[10
 						}
 						break;
 					case DOWN_ARROW:
-						if (directions[1] == true) {
+						if (directions[1] == true) { 
 							a[check].set(number_letter, number, number_letter, number + ship_length - 1, ship_length);
 							check += 1;
 							for (int i = 1; i < ship_length; i++) {
@@ -775,15 +775,15 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 	}
 	if (*is_prev_success_comp == false) {
 		int cheat = 0;
-		cheat = rand() % 19;
-		while (true) {
+		cheat = rand() % 19; //возможность программы с 0,05 вероятностью искать кораль
+		while (true) {								//пока не найдет
 			*x = rand() % 10;
 			*y = rand() % 10;
 
 			if (cheat == 10 && zones[*y][*x] == 0) {
 				continue;
 			}
-			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 || zones[*y][*x] == 0
+			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 //|| zones[*y][*x] == 0 //чит-режим программы
 				) {
 				continue;
 			}
