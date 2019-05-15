@@ -775,7 +775,7 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 	}
 	if (*is_prev_success_comp == false) {
 		/*int cheat = 0;
-		cheat = rand() % 19; //возможность программы с 0,05 вероятностью искать кораль*/
+		cheat = rand() % 19; //возможность программы с 0,05 вероятностью искать корабль*/
 		while (true) {								
 			*x = rand() % 10;
 			*y = rand() % 10;
