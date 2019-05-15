@@ -774,15 +774,15 @@ Ships* Computer::move(bool* is_prev_success_comp, bool* is_prev_success_comp_2, 
 		cout << "Ход противника. Дождитесь окончания.";
 	}
 	if (*is_prev_success_comp == false) {
-		int cheat = 0;
-		cheat = rand() % 19; //возможность программы с 0,05 вероятностью искать кораль
-		while (true) {								//пока не найдет
+		/*int cheat = 0;
+		cheat = rand() % 19; //возможность программы с 0,05 вероятностью искать кораль*/
+		while (true) {								
 			*x = rand() % 10;
 			*y = rand() % 10;
 
-			if (cheat == 10 && zones[*y][*x] == 0) {
+			/*if (cheat == 10 && zones[*y][*x] == 0) {
 				continue;
-			}
+			}*/
 			if (zones[*y][*x] == -2 || zones[*y][*x] == -1 //|| zones[*y][*x] == 0 //чит-режим программы
 				) {
 				continue;
